@@ -2,11 +2,29 @@ package com.dio.santander.bankline.api.com.dio.santander.bankline.api.model;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Generationtype;
+import javax.persistence.Column;
+import javax.persistence.Enumerated;
+
+@Entity
+@Table(name = "tab_movimentacao")
 public class Movimentacao {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id;
+    @Column(name = "data_hora")
+
     private LocalDateTime dataHora;
+
     private String descricao;
+
     private Double valor;
+
+    @Enumerated(EnumType.String)
     private MovimentacaoTipo tipo;
     public Integer getId() {
         return id;
